@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="RecycleView_CategoryUnits_item_TextView_Category_padding">8dp</dimen>
+    <dimen name="textView_categoryName_padding">10dp</dimen>
+</resources>

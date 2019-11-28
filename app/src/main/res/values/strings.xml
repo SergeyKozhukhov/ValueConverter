@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">ValueConverter</string>
+
+    <string name="CategoryUnits_LENGTH">Длинна</string>
+
+    <string name="Units_KILOMETER">Километр</string>
+    <string name="Units_METER">Метр</string>
+    <string name="Units_SENTIMETR">Сантиметр</string>
+    <string name="Units_MILLIMETER">Миллиметр</string>
+
+
+    <string name="CategoryUnits_AREA">Площадь</string>
+
+    <string name="Units_HECTARE">Гектар</string>
+    <string name="Units_SQUARE_METER">Квадратный метр</string>
+    <string name="Units_SQUARE_CENTIMETER">Квадратный сантиметр</string>
+
+
+    <string name="CategoryUnits_MASS">Вес</string>
+
+    <string name="Units_TON">Тонна</string>
+    <string name="Units_KILOGRAM">Килограмм</string>
+    <string name="Units_GRAM">Грамм</string>
+    <string name="Units_MILIGRAM">Милиграмм</string>
+
+
+    <string name="CategoryUnits_TIME">Время</string>
+
+    <string name="Units_HOUR">Час</string>
+    <string name="Units_MINUTE">Минута</string>
+    <string name="Units_SECOND">Секунда</string>
+
+
+
+
+
+</resources>
