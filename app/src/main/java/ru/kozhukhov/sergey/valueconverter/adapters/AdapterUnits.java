@@ -21,19 +21,17 @@ public class AdapterUnits extends BaseAdapter {
     /*
     * contex требуется для загрузки данных из файла ресуров,
     * чтобы в spinner записать не id названий, а текстовое представление
-    *
-    * categoryData - список единиц измерений
     * */
-
     private Context context;
 
+    /*
+    * categoryData - список единиц измерений
+    * */
     private final List<Units> categoryData;
-
 
     /*
     * Конструктор адаптера
     * */
-
     public AdapterUnits(CategoryUnits categoryUnits, Context context) {
         categoryData = categoryUnits.getCategoryData();
         this.context = context;
@@ -46,7 +44,6 @@ public class AdapterUnits extends BaseAdapter {
     /*
     * Возвращение колличество единиц измерения
     * */
-
     @Override
     public int getCount() {
         return categoryData.size();
@@ -55,7 +52,6 @@ public class AdapterUnits extends BaseAdapter {
     /*
     * Возврашение текстового представления наименования единицы измерения из файла ресурсов
     * */
-
     @Override
     public String getItem(int position) {
         return context.getString(categoryData.get(position).getUnitName());
@@ -70,7 +66,6 @@ public class AdapterUnits extends BaseAdapter {
     * Возвращение наглядного представления ячейкм spinner c соответствующими данными
     * simple_list_item_1 - встроенный xml файл c TextView
     * */
-
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
@@ -91,7 +86,6 @@ public class AdapterUnits extends BaseAdapter {
          * mUnitName - TextView для отображения наименования единицы измерения
          * для simple_list_item_1 следует обратиться к text1
          * */
-
         private final TextView mUnitName;
 
         private ViewHolder(View view) {

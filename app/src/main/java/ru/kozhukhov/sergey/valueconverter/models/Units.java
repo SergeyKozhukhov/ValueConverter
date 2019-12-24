@@ -7,13 +7,11 @@ import ru.kozhukhov.sergey.valueconverter.R;
 /*
  * Информация о единицах измерения.
  * */
-
-
 public enum Units {
 
     KILOMETER(R.string.Units_KILOMETER, 1000.0, 0.001),
     METER(R.string.Units_METER, 1.0, 1.0),
-    CENTIMENTR(R.string.Units_SENTIMETR, 0.01, 100),
+    CENTIMETER(R.string.Units_SENTIMETR, 0.01, 100),
     MILLIMETER(R.string.Units_MILLIMETER, 0.001, 1000.0),
 
     HECTARE(R.string.Units_HECTARE, 10000.0, 0.0001),

@@ -4,12 +4,11 @@ import ru.kozhukhov.sergey.valueconverter.models.CategoryUnits;
 
 /*
 * Интерфейс для обработки нажатия на ячейку RecyclerView
-*
-* Параметры функции:
-* @param categoryUnits - категория единиц измерения, зафиксированная за нажатой ячейкой
-*
 * */
-
 public interface OnItemClickListener {
+    /*
+    * Параметры функции:
+    * @param categoryUnits - категория единиц измерения, зафиксированная за нажатой ячейкой
+    * */
     void itemClick(CategoryUnits categoryUnits);
 }

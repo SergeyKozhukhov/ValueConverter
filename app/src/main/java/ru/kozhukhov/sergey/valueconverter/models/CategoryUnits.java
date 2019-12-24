@@ -14,10 +14,9 @@ import ru.kozhukhov.sergey.valueconverter.R;
 /*
  * Информация о категориях единиц измерений.
  * */
-
 public enum CategoryUnits implements Parcelable{
 
-    LENGTH (R.string.CategoryUnits_LENGTH, Arrays.asList(Units.KILOMETER, Units.METER, Units.CENTIMENTR, Units.MILLIMETER)),
+    LENGTH (R.string.CategoryUnits_LENGTH, Arrays.asList(Units.KILOMETER, Units.METER, Units.CENTIMETER, Units.MILLIMETER)),
     AREA(R.string.CategoryUnits_AREA, Arrays.asList(Units.HECTARE, Units.SQUARE_METER, Units.SQUARE_CENTIMETER)),
     MASS(R.string.CategoryUnits_MASS, Arrays.asList(Units.TON, Units.KILOGRAM, Units.GRAMM, Units.MILIGRAM)),
     TIME(R.string.CategoryUnits_TIME, Arrays.asList(Units.HOUR, Units.MINUTE, Units.SECOND));
@@ -27,10 +26,8 @@ public enum CategoryUnits implements Parcelable{
     * categoryName - наименование категории единиц измерения,
     * categoryData - список единиц измерения данной категории
     * */
-
     @StringRes
     private int categoryName;
-
     private List<Units> categoryData;
 
     CategoryUnits(@StringRes int categoryName, List <Units> categoryData) {
@@ -69,6 +66,4 @@ public enum CategoryUnits implements Parcelable{
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(this.ordinal());
     }
-
-
 }

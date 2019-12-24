@@ -8,7 +8,6 @@ import ru.kozhukhov.sergey.valueconverter.models.Units;
 /*
 * Конвертер величин
 * */
-
 public class ValueConverter {
 
     /*
@@ -16,15 +15,12 @@ public class ValueConverter {
     * positionTo - выбранная позиция "ИЗ" (единица измерения)
     * positionTo - выбранная позиция "В" (единица измерения)
     * */
-
     List<Units> categoryData;
     private int positionTo;
     private int positionFrom;
 
     public ValueConverter(AdapterUnits adapterUnits) {
-
         this.categoryData = adapterUnits.getCategoryData();
-
         positionFrom = 0;
         positionTo = 0;
     }
@@ -35,7 +31,6 @@ public class ValueConverter {
     *
     * @param value - значение для перевода величин (например, 10 км, 100 м и т.д.)
     * */
-
     public double convert(double value)
     {
         return value*categoryData.get(positionTo).getProportionTo()*
@@ -47,7 +42,6 @@ public class ValueConverter {
      *
      * @param value - значение для перевода величин (например, 10 км, 100 м и т.д.)
      * */
-
     public double convertReverse(double value)
     {
         return value*categoryData.get(positionFrom).getProportionTo()*
@@ -62,7 +56,4 @@ public class ValueConverter {
     public void setPositionTo(int positionTo) {
         this.positionTo = positionTo;
     }
-
-
-
 }

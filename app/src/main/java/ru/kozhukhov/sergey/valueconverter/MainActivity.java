@@ -1,28 +1,15 @@
 package ru.kozhukhov.sergey.valueconverter;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
-import java.util.Arrays;
 
-import ru.kozhukhov.sergey.valueconverter.adapters.AdapterCategoryUnits;
-import ru.kozhukhov.sergey.valueconverter.adapters.OnItemClickListener;
+import ru.kozhukhov.sergey.valueconverter.fragments.FragmentCategories;
+import ru.kozhukhov.sergey.valueconverter.fragments.FragmentConverter;
 import ru.kozhukhov.sergey.valueconverter.models.CategoryUnits;
 
-public class MainActivity extends AppCompatActivity {
-
-    /*
-    * SAVE_CATEGORY - значения для передачи единиц измерения выбранной категории в следующую activity
-    * */
-    private final String SAVE_CATEGORY = "CATEGORY_UNITS";
-
-    private OnItemClickListener mOnItemClickListener;
-
-    private RecyclerView mRecycleView_CategoryUnits;
+public class MainActivity extends AppCompatActivity implements FragmentCategories.ValueConverterHolder {
 
 
     @Override
@@ -30,20 +17,28 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mOnItemClickListener = new OnItemClickListener(){
-            @Override
-            public void itemClick(CategoryUnits categoryUnits) {
-                /*
-                * Передача единиц измерения выбранной категории в ConverterActivity
-                * */
-                Intent i = new Intent(getApplicationContext(), ConverterActivity.class);
-                i.putExtra(SAVE_CATEGORY, (Parcelable) categoryUnits);
-                startActivity(i);
-            }
-        };
+        /*
+        * Добавление фрагмента со списком категорий при первоначальном запуске приложения
+        * */
+        if (savedInstanceState == null){
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.main_fl_root, FragmentCategories.newInstance())
+                    .commit();
+        }
+    }
 
-        mRecycleView_CategoryUnits = findViewById(R.id.activity_main_RecycleView_CategoryUnits);
-        mRecycleView_CategoryUnits.setLayoutManager(new LinearLayoutManager(this));
-        mRecycleView_CategoryUnits.setAdapter(new AdapterCategoryUnits(Arrays.asList(CategoryUnits.values()), mOnItemClickListener));
+    /*
+    * Реализация интерфейса для открытия фрагмента с конвертером единиц измерений
+    *
+    * В документации от google сказано, что коммуникацию фрагментов следует проводить через activity,
+    * никакого прямого общения друг с другом
+    * http://blog.harrix.org/article/7521#h2_1
+    * */
+    @Override
+    public void showValueConverter(@NonNull CategoryUnits categoryUnits) {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.main_fl_root, FragmentConverter.newInstance(categoryUnits))
+                .addToBackStack(FragmentConverter.class.getSimpleName())
+                .commit();
     }
 }
